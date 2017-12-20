@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/_HogansAlley/_Scenes/Menu.unity
+  isLoaded: 1
+  isActive: 1
