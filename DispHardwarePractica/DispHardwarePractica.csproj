@@ -223,13 +223,18 @@
     <Compile Include="Assets\_HogansAlley\Scripts\CameraController.cs" />
     <Compile Include="Assets\_HogansAlley\Scripts\GameplayManager.cs" />
     <Compile Include="Assets\_HogansAlley\Scripts\GuyActions.cs" />
+    <Compile Include="Assets\_HogansAlley\Scripts\MenuManager.cs" />
     <Compile Include="Assets\_HogansAlley\Scripts\PeopleSpawner.cs" />
     <Compile Include="Assets\_HogansAlley\Scripts\PersonType.cs" />
+    <Compile Include="Assets\_HogansAlley\Scripts\ScoreRankings.cs" />
     <Compile Include="Assets\_HogansAlley\Scripts\SpawnPoint.cs" />
     <Compile Include="Assets\_HogansAlley\VRComponents\Common\CameraRaycaster.cs" />
     <Compile Include="Assets\_HogansAlley\VRComponents\Common\VRComponent.cs" />
+    <Compile Include="Assets\_HogansAlley\VRComponents\Common\VRComponent3D.cs" />
+    <Compile Include="Assets\_HogansAlley\VRComponents\Common\VRComponentUI.cs" />
     <Compile Include="Assets\_HogansAlley\VRComponents\Complements\PointerDrawer.cs" />
     <Compile Include="Assets\_HogansAlley\VRComponents\Complements\ReticlePointerDrawer.cs" />
+    <Compile Include="Assets\_HogansAlley\VRComponents\VR 3D Components\VRGameObject.cs" />
     <Compile Include="Assets\_HogansAlley\VRComponents\VR UI Components\VRButton\VRButton.cs" />
     <Compile Include="Assets\FullTiltBoogie\RotateFlareHolder.cs" />
   </ItemGroup>
@@ -237,6 +242,8 @@
     <None Include="Assets\FullTiltBoogie\Helpers\readme.txt" />
     <None Include="Assets\_HogansAlley\MobileShaders\FuturisticUnlit.shader" />
     <None Include="Assets\_HogansAlley\VRComponents\Complements\ReticlePointerShader.shader" />
+    <None Include="Assets\_HogansAlley\VRComponents\SampleAssets\Mobile-Bumped-Color.shader" />
+    <None Include="Assets\_HogansAlley\VRComponents\SampleAssets\Mobile-Color.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

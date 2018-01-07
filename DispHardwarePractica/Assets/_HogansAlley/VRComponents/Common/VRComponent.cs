@@ -7,9 +7,11 @@ using UnityEngine;
 public class VRComponent : MonoBehaviour {
 
 
+    protected CameraRaycaster _cameraRaycaster;
+
     // Use this for initialization
     public virtual void Start() {
-        CameraRaycaster.AutoInstance();
+        _cameraRaycaster = CameraRaycaster.instance;
     }
 
     public virtual void Leave() { }

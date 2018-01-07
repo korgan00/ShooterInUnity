@@ -18,6 +18,7 @@ using UnityEngine;
 /// The circle dilates if the object is clickable.
 [AddComponentMenu("VR UI/ReticlePointer")]
 [RequireComponent(typeof(Renderer))]
+[ExecuteInEditMode]
 public class ReticlePointerDrawer : MonoBehaviour {
     /// Number of segments making the reticle circle.
     public int reticleSegments = 20;
@@ -68,21 +69,24 @@ public class ReticlePointerDrawer : MonoBehaviour {
     private float _reticleInnerDiameter = 0.0f;
     private float _reticleOuterDiameter = 0.0f;
 
-    private CameraRaycaster raycaster = null;
+    private CameraRaycaster _raycaster = null;
 
     void Start() {
-        raycaster = CameraRaycaster.AutoInstance();
-        CreateReticleVertices();
+        _raycaster = CameraRaycaster.instance;
+        if (!Application.isPlaying) return;
 
+        CreateReticleVertices();
         _materialComp = gameObject.GetComponent<Renderer>().material;
     }
 
     void Update() {
-        if (raycaster.isColliding) {
-            GameObject targetObject = raycaster.lastRaycastInteractive.gameObject;
-            Vector3 intersectionPosition = raycaster.lastRaycastIntersection;
-            Ray intersectionRay = new Ray(raycaster.castingCamera.transform.position, intersectionPosition);
-            bool isInteractive = raycaster.isCollidingVRComponent;
+        if (!Application.isPlaying) return;
+
+        if (_raycaster.raycastInfo.isColliding) {
+            GameObject targetObject = _raycaster.raycastInfo.hit;
+            Vector3 intersectionPosition = _raycaster.raycastInfo.intersectionPoint;
+            Ray intersectionRay = new Ray(_raycaster.castingCamera.transform.position, intersectionPosition);
+            bool isInteractive = _raycaster.raycastInfo.isCollidingVRComponent;
             OnPointerHover(targetObject, intersectionPosition, intersectionRay, isInteractive);
         } else {
             OnPointerExit(null);

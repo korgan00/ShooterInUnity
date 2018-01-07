@@ -7,7 +7,7 @@ using UnityEditor;
 #endif
 
 [AddComponentMenu("VR UI/Button")]
-public class VRButton : VRComponent {
+public class VRButton : VRComponentUI {
 
     public UnityEvent OnClick = new UnityEvent();
     public UnityEvent OnHover = new UnityEvent();
@@ -38,10 +38,15 @@ public class VRButton : VRComponent {
         OnHover.Invoke();
         GetComponent<Animator>().SetBool("Hover", true);
     }
+
+    void OnMouseDown() {
+        Click();
+    }
+
 #if UNITY_EDITOR
     [MenuItem("GameObject/VR UI/Button", false, priority: 7)]
     private static void NewButtonObject() {
-        VRButton newButton = (new GameObject("VR Button")).AddComponent<VRButton>();
+        /*VRButton newButton = */(new GameObject("VR Button")).AddComponent<VRButton>();
     }
 #endif
 }

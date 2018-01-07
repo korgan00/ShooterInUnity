@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameplayManager : MonoBehaviour {
 
@@ -21,7 +23,8 @@ public class GameplayManager : MonoBehaviour {
 	void Update () {
         _playingTime += Time.deltaTime;
         if (_playingTime > _maxTime) {
-            Application.Quit();
+            ScoreRankings.instance.AddScore(new ScoreRankings.ScoreData() { name = "", score = _points });
+            SceneManager.LoadScene("Menu");
         }
         _text.text = "Time: " + (int) (_playingTime) + "\nScore: " + _points;
     }
