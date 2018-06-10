@@ -20,9 +20,6 @@ public class GuyActions : MonoBehaviour {
     private float _shootTime = 0f;
     private bool _shooted = false;
 
-    public delegate void ShootEventHandler();
-    public event ShootEventHandler OnShoot;
-
     private Animator _animator;
     private GameObject _bang;
     

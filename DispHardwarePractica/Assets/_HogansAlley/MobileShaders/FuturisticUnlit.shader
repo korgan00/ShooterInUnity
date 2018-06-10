@@ -56,8 +56,11 @@ Shader "HogansAlley/FuturisticUnlit" {
 
                 fixed4 frag(v2f i) : SV_Target {
                     fixed f = (sin((i.texcoord.y + _SinTime.x / 4) * 1000 * _LinesHeight) * 0.5) + 0.5f;
-                    fixed4 col = tex2D(_MainTex, i.texcoord);
+                    fixed r = tex2D(_MainTex, i.texcoord + float2(0.01f, 0.0f)).r;
+                    fixed g = tex2D(_MainTex, i.texcoord + float2(0.0f, 0.01f)).g;
+                    fixed b = tex2D(_MainTex, i.texcoord).b;
 
+                    fixed4 col = fixed4(r, g, b, 0.0f);
                     col.a = 1 - pow(f, 10 * _LinesAlpha);
 
                     UNITY_APPLY_FOG(i.fogCoord, col);
